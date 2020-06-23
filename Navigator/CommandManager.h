@@ -1,12 +1,16 @@
 #pragma once
 #include <string>
+#include <stack>
 #include "FileObject.h"
 
 class CommandManager {
 private:
-	std::string lastCommand;
+	std::stack<std::string> recentCommands;
 	FileObject file;
 public:
-	CommandManager(std::string);
-	std::string EnterCommand();
+	CommandManager();
+	std::string EnterCommand(std::string);
+	std::string EnterCommand_CurrentDirectory();
+	std::string EnterCommand_PrintWorkingDirectory();
+	std::string EnterCommand_ChangeDirectory(std::string);
 };

@@ -1,14 +1,16 @@
 #include <iostream>
 #include "FileObject.h"
+#include "CommandManager.h"
 
 
 int main()
 {
     std::string command;
-    FileObject currentLocation = FileObject();
+    CommandManager manager = CommandManager();
+    std::cout << manager.EnterCommand_CurrentDirectory();
     for (;;) {
-        std::cout << currentLocation.CurrentPath() << ">";
         std::cin >> command;
+        std::cout << manager.EnterCommand(command);
     }
 }
 
