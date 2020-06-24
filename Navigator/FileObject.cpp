@@ -11,10 +11,9 @@ std::string FileObject::CurrentPath() {
 
 std::vector<std::string> FileObject::ListOfItems() {
 	std::vector<std::string> items = std::vector<std::string>();
-	int i = 0;
+	// pushes every item in directory into items
 	for (filesystem::path item : files) {
-		i++;
-		items.push_back(i + ": " + item.string());
+		items.push_back(item.string());
 	}
 	
 	return items;

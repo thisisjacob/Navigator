@@ -5,10 +5,10 @@ CommandManager::CommandManager() {
 }
 
 std::string CommandManager::EnterCommand(std::string command) {
-	if (command.compare("pwd") == 0) {
-		return EnterCommand_PrintWorkingDirectory();
+	if (command.compare("dir") == 0) {
+		return EnterCommand_ItemsInDirectory();
 	}
-	else if (command.compare("dir") == 0) {
+	else if (command.compare("pwd") == 0) {
 		return EnterCommand_CurrentDirectory();
 	}
 	else {
@@ -19,11 +19,12 @@ std::string CommandManager::EnterCommand(std::string command) {
 std::string CommandManager::EnterCommand_CurrentDirectory() {
 	return file.CurrentPath() + ">";
 };
-std::string CommandManager::EnterCommand_PrintWorkingDirectory() {
+std::string CommandManager::EnterCommand_ItemsInDirectory() {
 	std::vector<std::string> items = file.ListOfItems();
 	std::string returned = "";
+	// appends number in directory and every item in directory to returned
 	for (int i = 0; i < items.size(); i++) {
-		returned.append(items[i] + "\n");
+		returned.append(std::to_string(i + 1) + ": " + items[i] + "\n");
 	}
 	returned.append("\n" + EnterCommand_CurrentDirectory());
 	return returned;
@@ -33,8 +34,5 @@ std::string CommandManager::EnterCommand_ChangeDirectory(std::string) {
 };
 
 
-// std::string EnterCommand(std::string);
-// std::string EnterCommand_CurrentDirectory();
-// std::string EnterCommand_PrintWorkingDirectory();
-// std::string EnterCommand_ChangeDirectory(std::string);
+
 
