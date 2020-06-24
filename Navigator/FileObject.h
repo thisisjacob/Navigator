@@ -18,7 +18,7 @@ public:
 	// returns the list of items in the current directory
 	std::vector<std::string> ListOfItems();
 	// sets newPath as the current path
-	void ChangeLocation(filesystem::path newPath);	
+	void ChangeLocation(std::string newPath);	
 	// Moves up one item in the file path, as long as it would not create an empty path
 	void MoveUpDirectory();
 };

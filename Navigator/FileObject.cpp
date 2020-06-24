@@ -19,9 +19,12 @@ std::vector<std::string> FileObject::ListOfItems() {
 	return items;
 }
 
-void FileObject::ChangeLocation(filesystem::path newPath) {
-	currentPath = newPath;
-	files = filesystem::directory_iterator(currentPath);
+void FileObject::ChangeLocation(std::string newPath) {
+	filesystem::path testPath = filesystem::path(newPath);
+	if (filesystem::exists(testPath) && testPath.is_absolute()) {
+		currentPath = testPath;
+	}
+	// else if for relative path
 }
 
 void FileObject::MoveUpDirectory() {

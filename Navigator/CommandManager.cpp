@@ -40,7 +40,7 @@ std::string CommandManager::EnterCommand_ChangeDirectory(std::string newPath) {
 		file.MoveUpDirectory();
 	}
 	else { 
-		
+		file.ChangeLocation(newPath);
 	}
 	return EnterCommand_CurrentDirectory();
 };
