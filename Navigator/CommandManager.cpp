@@ -24,6 +24,7 @@ std::string CommandManager::EnterCommand(std::string command) {
 std::string CommandManager::EnterCommand_CurrentDirectory() {
 	return file.CurrentPath() + ">";
 };
+
 std::string CommandManager::EnterCommand_ItemsInDirectory() {
 	std::vector<std::string> items = file.ListOfItems();
 	std::string returned = "";
