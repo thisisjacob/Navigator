@@ -39,7 +39,7 @@ std::string CommandManager::EnterCommand_ChangeDirectory(std::string newPath) {
 	if (newPath._Equal("..")) {
 		file.MoveUpDirectory();
 	}
-	else if (true) { // check if valid path, set returned to new path if so
+	else { 
 		
 	}
 	return EnterCommand_CurrentDirectory();

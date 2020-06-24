@@ -24,10 +24,6 @@ void FileObject::ChangeLocation(filesystem::path newPath) {
 	files = filesystem::directory_iterator(currentPath);
 }
 
-void FileObject::ChangeLocation(std::string command) {
-	
-}
-
 void FileObject::MoveUpDirectory() {
 	if (!currentPath.parent_path().empty()) {
 		currentPath = currentPath.parent_path();

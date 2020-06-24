@@ -19,11 +19,6 @@ public:
 	std::vector<std::string> ListOfItems();
 	// sets newPath as the current path
 	void ChangeLocation(filesystem::path newPath);	
-	// converts command to a path, sets path as converted command
-	// works based on specific commands
-	// .. moves one directory upwards
-	// NOTICE:: Not fully implemented yet
-	void ChangeLocation(std::string command);
 	// Moves up one item in the file path, as long as it would not create an empty path
 	void MoveUpDirectory();
 };
