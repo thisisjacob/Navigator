@@ -2,6 +2,7 @@
 #include <string>
 #include <stack>
 #include "FileObject.h"
+#include <iostream>
 
 class CommandManager {
 private:

@@ -25,7 +25,11 @@ void FileObject::ChangeLocation(filesystem::path newPath) {
 }
 
 void FileObject::ChangeLocation(std::string command) {
-	if (command._Equal("..")) {
+	
+}
 
+void FileObject::MoveUpDirectory() {
+	if (!currentPath.parent_path().empty()) {
+		currentPath = currentPath.parent_path();
 	}
 }

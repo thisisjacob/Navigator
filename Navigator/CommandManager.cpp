@@ -11,6 +11,11 @@ std::string CommandManager::EnterCommand(std::string command) {
 	else if (command.compare("pwd") == 0) {
 		return EnterCommand_CurrentDirectory();
 	}
+	else if (command.compare("cd") == 0) {
+		std::string dir;
+		std::cin >> dir;
+		return EnterCommand_ChangeDirectory(dir);
+	}
 	else {
 		return "Unrecognized command.";
 	}
@@ -29,8 +34,15 @@ std::string CommandManager::EnterCommand_ItemsInDirectory() {
 	returned.append("\n" + EnterCommand_CurrentDirectory());
 	return returned;
 };
-std::string CommandManager::EnterCommand_ChangeDirectory(std::string) {
-	return "";
+
+std::string CommandManager::EnterCommand_ChangeDirectory(std::string newPath) {
+	if (newPath._Equal("..")) {
+		file.MoveUpDirectory();
+	}
+	else if (true) { // check if valid path, set returned to new path if so
+		
+	}
+	return EnterCommand_CurrentDirectory();
 };
 
 
