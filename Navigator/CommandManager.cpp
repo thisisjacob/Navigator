@@ -13,7 +13,9 @@ std::string CommandManager::EnterCommand(std::string command) {
 	}
 	else if (command.compare("cd") == 0) {
 		std::string dir;
-		std::cin >> dir;
+		std::getline(std::cin, dir);
+		// Clears leading space from dir so it can be turned into a path
+		dir = dir.substr(1, dir.length());
 		return EnterCommand_ChangeDirectory(dir);
 	}
 	else {
@@ -28,7 +30,7 @@ std::string CommandManager::EnterCommand_CurrentDirectory() {
 std::string CommandManager::EnterCommand_ItemsInDirectory() {
 	std::vector<std::string> items = file.ListOfItems();
 	std::string returned = "";
-	// appends number in directory and every item in directory to returned
+	// Appends number in directory and every item in directory to returned
 	for (int i = 0; i < items.size(); i++) {
 		returned.append(std::to_string(i + 1) + ": " + items[i] + "\n");
 	}
