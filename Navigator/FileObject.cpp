@@ -24,9 +24,11 @@ void FileObject::ChangeLocation(std::string newPath) {
 	filesystem::path testPath = filesystem::path(newPath);
 	if (filesystem::exists(testPath) && testPath.is_absolute()) {
 		currentPath = testPath;
-		files = filesystem::directory_iterator(currentPath);
 	}
-	// else if for relative path
+	else if (filesystem::exists(testPath)) {
+		currentPath = filesystem::path(currentPath.append(testPath));
+	}
+	files = filesystem::directory_iterator(currentPath);
 }
 
 void FileObject::MoveUpDirectory() {
