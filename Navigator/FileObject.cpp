@@ -38,5 +38,18 @@ void FileObject::MoveUpDirectory() {
 }
 
 std::string FileObject::MakeDirectory(std::string newDirectory) {
-
+	filesystem::path newDir = filesystem::path(newDirectory);
+	if (filesystem::exists(newDir) && newDir.is_absolute()) {
+		if (!filesystem::create_directory(newDir)) {
+			return "Unable to create directory.";
+		}
+	}
+	else if (filesystem::exists(newDir)) {
+		newDir = filesystem::path(currentPath.append(newDir));
+		if (!filesystem::create_directory(newDir)) {
+			return "Unable to create directory.";
+		}
+	}
+	// no problems, return empty string
+	return ""; 
 }

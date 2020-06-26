@@ -8,7 +8,10 @@ class CommandManager {
 private:
 	// TO BE IMPLEMENTED
 	std::stack<std::string> recentCommands;
+	// For holding information on the current path and the implementations of entered commands
 	FileObject file;
+	// Removes the first character in item, returns the modified string
+	std::string RemoveFirstChar(std::string item);
 public:
 	// Initializes file with default constructor
 	CommandManager();

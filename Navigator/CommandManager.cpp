@@ -15,8 +15,14 @@ std::string CommandManager::EnterCommand(std::string command) {
 		std::string dir;
 		std::getline(std::cin, dir);
 		// Clears leading space from dir so it can be turned into a path
-		dir = dir.substr(1, dir.length());
+		dir = RemoveFirstChar(dir);
 		return EnterCommand_ChangeDirectory(dir);
+	}
+	else if (command.compare("mkdir") == 0) {
+		std::string dir;
+		std::getline(std::cin, dir);
+		dir = RemoveFirstChar(dir);
+		return EnterCommand_MakeDirectory(dir);
 	}
 	else {
 		return "Unrecognized command.";
@@ -49,8 +55,21 @@ std::string CommandManager::EnterCommand_ChangeDirectory(std::string newPath) {
 };
 
 std::string CommandManager::EnterCommand_MakeDirectory(std::string newDirectory) {
-	
+	return EnterCommand_CurrentDirectory() + file.MakeDirectory(newDirectory);
 }
 
+// utilities
+
+std::string CommandManager::RemoveFirstChar(std::string item) {
+	if (item.length() > 1) {
+		// first item removed
+		return item.substr(1, item.length());
+	}
+	else {
+		// either remove only char, or string is empty and we should not call substr
+		return "";
+	}
+	
+}
 
 
