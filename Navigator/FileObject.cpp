@@ -12,7 +12,6 @@ std::string FileObject::CurrentPath() {
 std::vector<std::string> FileObject::ListOfItems() {
 	std::vector<std::string> items = std::vector<std::string>();
 	// pushes every item in directory into items
-	// TODO: currently creates list of items from current directory, even after changing directories via cd abspath
 	for (filesystem::path item : files) {
 		items.push_back(item.string());
 	}
@@ -36,4 +35,8 @@ void FileObject::MoveUpDirectory() {
 		currentPath = currentPath.parent_path();
 		files = filesystem::directory_iterator(currentPath);
 	}
+}
+
+std::string FileObject::MakeDirectory(std::string newDirectory) {
+
 }

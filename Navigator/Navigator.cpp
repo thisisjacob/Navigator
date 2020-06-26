@@ -12,5 +12,6 @@ int main()
         std::cin >> command;
         std::cout << manager.EnterCommand(command);
     }
+    return 0;
 }
 

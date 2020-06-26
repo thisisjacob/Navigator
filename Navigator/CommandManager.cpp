@@ -48,6 +48,9 @@ std::string CommandManager::EnterCommand_ChangeDirectory(std::string newPath) {
 	return EnterCommand_CurrentDirectory();
 };
 
+std::string CommandManager::EnterCommand_MakeDirectory(std::string newDirectory) {
+	
+}
 
 
 

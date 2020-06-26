@@ -21,4 +21,7 @@ public:
 	void ChangeLocation(std::string newPath);	
 	// Moves up one item in the file path, as long as it would not create an empty path
 	void MoveUpDirectory();
+	// Creates a new directory at the specified location. Can either be absolute or relative. 
+	// Will return an string notification if the specified directory path is not valid
+	std::string MakeDirectory(std::string newDirectory);
 };
